@@ -1,0 +1,66 @@
+﻿@using ToDoList.Models.ViewModels
+@model TaskListViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>UserTask</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="UserTask.Id" />
+            <div class="form-group">
+                <label asp-for="UserTask.Title" class="control-label"></label>
+                <input asp-for="UserTask.Title" class="form-control" />
+                <span asp-validation-for="UserTask.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="UserTask.IsDone" /> @Html.DisplayNameFor(model => model.UserTask.IsDone)
+                </label>
+            </div>
+           @* <div class="form-group">
+                <label asp-for="UserTask.TaskCategory" class="control-label"></label>
+                <input asp-for="UserTask.TaskCategory" class="form-control" />
+                <span asp-validation-for="UserTask.TaskCategory" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="UserTask.Dedline" class="control-label"></label>
+                <input asp-for="UserTask.Dedline" class="form-control" />
+                <span asp-validation-for="UserTask.Dedline" class="text-danger"></span>
+            </div>
+            
+            <select asp-for="UserTask.TaskCategory" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <label asp-for="UserTask.TaskCategory" class="control-label"></label>
+                <option value=@Model.UserTask.TaskCategory selected>@Model.UserTask.TaskCategory</option>
+                @foreach (var item in Model.Categories)
+               {
+                    if (@Model.UserTask.TaskCategory != @item.Category)
+                    {
+                        <label asp-for="UserTask.TaskCategory" class="control-label"></label>
+                        <option value=@item.Category>@item.Category</option>
+                    }
+               }
+            </select>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@*<div>
+    <a asp-page="./Index">Back to List</a>
+</div>*@
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

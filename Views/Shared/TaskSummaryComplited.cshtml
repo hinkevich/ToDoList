@@ -1,0 +1,86 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IQueryable<UserTask>
+
+
+
+@foreach (var item in Model)
+{
+    if (item.IsDone)
+    {
+        <tr>
+            <td style="width:60%">
+                @Html.DisplayFor(modelItem => item.IsDone) &nbsp; <s>@Html.DisplayFor(modelItem => item.Title)</s>
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskCategory)
+            </td>
+
+            <td>
+                <form method="post" asp-action="Delete" asp-route-id="@item.Id">
+                   @* <input type="hidden" name="category" id="category" value="@item.TaskCategory" />*@
+                    <input type="hidden" name="route" id="route" value="@ViewBag.CurrentRoute" />
+                    <input type='submit' value='Delete' />
+                    @*<a input "Delete" asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                    @*<a asp-page="Edit" asp-route-id="@item.Id">Edit</a> |
+            <a asp-page="Details" asp-route-id="@item.Id">Details</a> |
+            <a asp-page="Delete" asp-route-id="@item.Id">Delete</a>*@
+                </form>
+            </td>
+            <td>
+                <form method="post" asp-action="ChangeTaskStatus" asp-route-id="@item.Id">
+                    <input type="hidden" name="category" id="category" value="@item.TaskCategory" />
+                    <input type="hidden" name="routeId" id="routeId" value="@ViewBag.CurrentRoute" />
+                    <input type='submit' value='Cancel' />
+                    @*<a input "Delete" asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                    @*<a asp-page="Edit" asp-route-id="@item.Id">Edit</a> |
+            <a asp-page="Details" asp-route-id="@item.Id">Details</a> |
+            <a asp-page="Delete" asp-route-id="@item.Id">Delete</a>*@
+                </form>
+            </td>
+            <td>
+                <form method="get" asp-action="Edit" asp-route-id="@item.Id">
+                    <input type="hidden" name="category" id="category" value="@item.TaskCategory" />
+                    <input type="hidden" name="routeId" id="routeId" value="@ViewBag.CurrentRoute" />
+                    <input type='submit' value='Edit' />
+                    @*<a input "Delete" asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                    @*<a asp-page="Edit" asp-route-id="@item.Id">Edit</a> |
+            <a asp-page="Details" asp-route-id="@item.Id">Details</a> |
+            <a asp-page="Delete" asp-route-id="@item.Id">Delete</a>*@
+                </form>
+            </td>
+        </tr>
+    }
+}
+@*<form>
+    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+    <label for="vehicle1"> I have a bike</label><br>
+    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+    <label for="vehicle2"> I have a car</label><br>
+    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+    <label for="vehicle3"> I have a boat</label>
+</form>*@
+
+@*<form asp-controller="ToDo" asp-action="Edit" method="post">
+    @Html.EditorFor(m => m.Colors[index])
+    <label asp-for="Age"></label>
+    <input asp-for="Age" /><br />
+    <button type="submit">Post</button>
+</form>*@
+
+@*<form method="post" asp-action="Create">
+
+    <div class="input-group" style="width:90%">
+        <input type="text" name="msg" class="form-control" placeholder="Add task" aria-label="Recipient's username with two button addons">
+        <input type="hidden" name="category" id="category" value="@ViewBag.CurrentCategory" />
+        <input type="hidden" name="categoryId" id="categoryId" value=@ViewBag.CurrentCategoryId />
+        <button class="btn btn-outline-secondary" type="submit">Add task</button>
+        <input type='submit' value='Send' />
+
+    </div>
+
+</form>>*@

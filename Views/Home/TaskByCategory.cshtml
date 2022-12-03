@@ -1,0 +1,116 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using ToDoList.Models.ViewModels
+@model TaskListViewModel
+
+@*<div class="text-center">
+    <h1 class="display-4">Task By Category</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">with ASP.NET Cobuilding Web apps re</a>.</p>
+</div>*@
+
+@{
+    var cat = @ViewBag.CurrentCategory;
+    var CatId = @ViewBag.CurrentCategoryId;
+}
+
+@*<form method="post" asp-action="Create">
+
+    <div class="input-group" style="width:90%">
+        <input type="text" name="msg" class="form-control" placeholder="Add task" aria-label="Recipient's username with two button addons">
+        <input type="hidden" name="category" id="category" value="@ViewBag.CurrentCategory" />
+        <input type="hidden" name="categoryId" id="categoryId" value=@ViewBag.CurrentCategoryId />
+        <button class="btn btn-outline-secondary" type="submit">Add task</button>
+        <input type='submit' value='Send' />
+    </div>
+
+</form>*@
+<button class="accordion" style="width:95%">Add Task</button>
+<div class="panel">
+    <form method="post" asp-action="Create"style="width:60%">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="UserTask.Title" class="control-label"></label>
+            @*<input type="text" name="msg" class="form-control" placeholder="Add task" />*@
+            <input asp-for="UserTask.Title" class="form-control" placeholder="Add task" aria-label="Recipient's username with two button addons">
+            <span asp-validation-for="UserTask.Title" class="text-danger"></span>
+        </div>
+        @*<div class="form-group form-check">
+        <label class="form-check-label">
+        <input class="form-check-input" asp-for="UserTask.Cheked" /> @Html.DisplayNameFor(model => model.UserTask.Cheked)
+        </label>
+        </div>*@
+        <div class="form-group">
+            <label asp-for="Tasks.FirstOrDefault().TaskCategory" class="control-label"></label>
+            <input asp-for="Tasks.FirstOrDefault().TaskCategory" class="form-control" />
+            <span asp-validation-for="Tasks.FirstOrDefault().TaskCategory" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="UserTask.Dedline" class="control-label"></label>
+            <input asp-for="UserTask.Dedline" class="form-control" placeholder="@DateTime.Now" />
+            <span asp-validation-for="UserTask.Dedline" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="hidden" name="categoryId" id="categoryId" value="@ViewBag.CurrentCategoryId" />
+            <input type="hidden" name="category" id="category" value="@ViewBag.CurrentCategory" />
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+
+</div>
+
+@*<p>
+    @ViewBag.CurrentCategory
+</p>
+<p>
+    @ViewBag.CurrentCategoryId
+</p>*@
+
+
+@*<div class="form-group">
+    <label asp-for="Title" class="control-label"></label>
+    <input asp-for="Title" class="form-control" />
+    <span asp-validation-for="Title" class="text-danger"></span>
+</div>*@
+
+<div class="scroll-table">
+    @*<table class="table">*@
+    <table class="table" style="width:95%">
+        <thead>
+            <partial name="NameOfTable" model="Model.Tasks.FirstOrDefault()" />
+        </thead>
+    </table>
+    <div class="scroll-table-body">
+        <table class="table">
+            <tbody>
+                <partial name="TaskSummary" model=Model.Tasks />
+            </tbody>
+        </table>
+    </div>
+    <table class="table" style="width:95%">
+        <thead>
+            <tr>
+                <th style="width:60%">Completed</th>
+                <th>Category</th>
+               @* <th></th>
+                <th></th>
+                <th></th>*@
+            </tr>
+        </thead>
+    </table>
+    <div class="scroll-table-body-completed">
+        <table class="table">
+            <tbody>
+                <partial name="TaskSummaryComplited" model=Model.Tasks />
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+
+

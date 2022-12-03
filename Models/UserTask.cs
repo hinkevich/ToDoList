@@ -18,12 +18,12 @@ namespace ToDoList.Models
         [Display(Name = "Is done")]
         public bool IsDone { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime MakingDate { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime MakingDate { get; set; } = DateTime.Now;
         
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         [Display(Name = "DeadLine Date")]
-        public DateTime Dedline { get; set; }
+        public DateTime Dedline { get; set; } = DateTime.Now.AddDays(1);
 
     }
 }

@@ -21,15 +21,13 @@ namespace ToDoList.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly ToDoListDbContext _dbContext;
         private readonly IToDoMenu _menu;
         private readonly ITaskRepository _taskRepository;
         private string MyMsg = "dafault message";
 
-        public HomeController(ILogger<HomeController> logger, ToDoListDbContext context, IToDoMenu menu, ITaskRepository taskRepository)
+        public HomeController(ILogger<HomeController> logger,  IToDoMenu menu, ITaskRepository taskRepository)
         {
             _logger = logger;
-            _dbContext = context;
             _menu = menu;
             _taskRepository = taskRepository;
         }
@@ -41,7 +39,7 @@ namespace ToDoList.Controllers
             ViewBag.MyMessage = "My Menu index ";
             ViewBag.AllButton = "list-group-item list-group-item-action py-2 ripple active";
             ViewBag.SideBarItems = _menu.itemsSideBars;
-            var taskObject = new TaskListViewModel() { Tasks = _taskRepository.Tasks, Categories = _taskRepository.Categories };
+            var taskObject = new TaskListViewModel() { Tasks = _taskRepository.Tasks.OrderByDescending(p => p.MakingDate), Categories = _taskRepository.Categories };
             return View(taskObject);
         }
 
@@ -158,8 +156,7 @@ namespace ToDoList.Controllers
             var result = await _taskRepository.EditUserTask(userTask);
             if (result == 0)
             {
-                ModelState.AddModelError("UserTask.Id", "Incorrect id UserTask");
-                return BadRequest(ModelState);
+                return NotFound();
             }
             return Redirect(route);
         }

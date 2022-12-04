@@ -7,45 +7,28 @@
 
 <div class="position-sticky">
     <div class="list-group list-group-flush mx-3 mt-4">
-        @*<a class="list-group-item list-group-item-action py-2 ripple" aria-current="true"
-           asp-area="" asp-controller="Home" asp-action="Index">
-            <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>All tasks</span>
-        </a>*@
+       
         @{
             var items = ViewBag.SideBarItems;
             <div>
                 @foreach (var item in items)
                 {
-                    <a class="list-group-item list-group-item-action py-2 ripple" aria-current="true"
-                     asp-area="" asp-controller="Home" asp-action="TaskByCategory" asp-route-id=@item.Id>
-                        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>@item.Name</span>
-                    </a>
+                    if (item.Id == ViewBag.CurrentRoute)
+                    {
+                        <a class="list-group-item list-group-item-action py-2 ripple active" aria-current="true"
+                         asp-area="" asp-controller="Home" asp-action="TaskByCategory" asp-route-id=@item.Id>
+                            <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>@item.Name</span>
+                        </a>
+                    }
+                    else
+                    {
+                        <a class="list-group-item list-group-item-action py-2 ripple" aria-current="true"
+                         asp-area="" asp-controller="Home" asp-action="TaskByCategory" asp-route-id=@item.Id>
+                            <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>@item.Name</span>
+                        </a>
+                    }
                 }
             </div>
         }
-
-
-       @* <a class=@ViewBag.AllButton
-           aria-current="true"
-           asp-area="" asp-controller="Home" asp-action="Index">
-            <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>All Tasks</span>
-        </a>
-        <a class="list-group-item list-group-item-action py-2 ripple"
-           aria-current="true"
-           asp-area="" asp-controller="Home" asp-action="TaskByCategory" asp-route-id="1">
-            <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>My Day</span>
-        </a>
-        <a class="list-group-item list-group-item-action py-2 ripple"
-           asp-controller="Home" asp-action="TaskByCategory" asp-route-id="2">
-            <i class="fas fa-chart-area fa-fw me-3"></i><span>Important</span>
-        </a>
-        <a class="list-group-item list-group-item-action py-2 ripple"
-           asp-controller="Home" asp-action="TaskByCategory" asp-route-id="3"><i class="fas fa-lock fa-fw me-3"></i><span>Planned</span></a>
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-chart-line fa-fw me-3"></i><span>@ViewBag.MyMessage</span></a>
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple">
-            <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple active"><i class="fas fa-users fa-fw me-3"></i><span>Users</span></a>
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-money-bill fa-fw me-3"></i><span>Sales</span></a>*@
     </div>
 </div>

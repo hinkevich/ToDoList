@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>D:\ToDoList</_PublishTargetUrl>
-    <History>True|2022-11-30T08:35:50.3946063Z;</History>
+    <History>True|2022-12-04T16:55:26.6297621Z;False|2022-12-04T19:55:12.1857549+03:00;False|2022-12-04T19:54:12.1538898+03:00;True|2022-12-04T19:47:55.6997090+03:00;True|2022-12-04T17:08:29.4547286+03:00;True|2022-11-30T11:35:50.3946063+03:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

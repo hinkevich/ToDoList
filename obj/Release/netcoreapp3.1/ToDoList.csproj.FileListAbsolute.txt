@@ -143,3 +143,4 @@ D:\csharp\lern\ToDoList\obj\Release\netcoreapp3.1\ToDoList.csproj.CopyComplete
 D:\csharp\lern\ToDoList\obj\Release\netcoreapp3.1\ToDoList.dll
 D:\csharp\lern\ToDoList\obj\Release\netcoreapp3.1\ToDoList.pdb
 D:\csharp\lern\ToDoList\obj\Release\netcoreapp3.1\ToDoList.genruntimeconfig.cache
+D:\csharp\lern\ToDoList\obj\Release\netcoreapp3.1\Razor\Views\Home\Edit.cshtml.g.cs

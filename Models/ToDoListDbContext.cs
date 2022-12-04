@@ -8,6 +8,5 @@ namespace ToDoList.Models
         { }
         public DbSet<UserTask> Tasks { get; set; }
         public DbSet<TaskCategory> TaskCategories { get; set; }
-       
     }
 }

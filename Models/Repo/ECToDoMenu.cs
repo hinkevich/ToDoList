@@ -29,7 +29,5 @@ namespace ToDoList.Models.Repo
             }
             return menu;
         }
-       
-
     }
 }

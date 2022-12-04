@@ -2,24 +2,6 @@
 @model TaskListViewModel
 
 
-
-@*<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>*@
-
-
-@*@foreach (var task in Model.Tasks)
-{
-    <div>
-        <p>@task.Id</p>
-        <p>@task.Title</p>
-    </div>
-
-}*@
-
-@*@await Html.PartialAsync("SidebarMenu")*@
-
 <div class="scroll-table">
     
     <table class="table" style="width:95%">
@@ -50,21 +32,3 @@
         </table>
     </div>
 </div>
-
-
-@*test sidebar menu*@
-@*@{
-    var items = ViewBag.SideBarItems;
-     <div>
-    @foreach (var item in items)
-    {
-            <p>@item.Id, @item.Name</p>
-    }
-    </div>
-}
-*@
-
-
-
-
-

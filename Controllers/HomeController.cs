@@ -1,5 +1,4 @@
-﻿//using AspNetCore;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -23,15 +22,13 @@ namespace ToDoList.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IToDoMenu _menu;
         private readonly ITaskRepository _taskRepository;
-        private string MyMsg = "dafault message";
-
+        private readonly string MyMsg = "dafault message";
         public HomeController(ILogger<HomeController> logger,  IToDoMenu menu, ITaskRepository taskRepository)
         {
             _logger = logger;
             _menu = menu;
             _taskRepository = taskRepository;
         }
-
         public IActionResult Index()
         {
             ViewBag.CurrentRoute = 0;
@@ -61,7 +58,6 @@ namespace ToDoList.Controllers
             return View(taskObject);
         }
 
-
         [HttpPost]
         public async Task<IActionResult> Create([Bind("Id,Title,")] UserTask userTask, int categoryId, string category)
         {
@@ -77,7 +73,6 @@ namespace ToDoList.Controllers
             return Redirect(route);
         }
 
-
         [HttpPost]
         public async Task<IActionResult> Delete(int? id, int routeId)
         {
@@ -91,7 +86,6 @@ namespace ToDoList.Controllers
             await _taskRepository.DeleteUserTask((int)id);
             return Redirect(route);
         }
-
 
         [HttpPost]
         public async Task<IActionResult> ChangeTaskStatus(int? id, int routeId)
@@ -119,24 +113,25 @@ namespace ToDoList.Controllers
             {
                 return NotFound();
             }
+
             ViewBag.SideBarItems = _menu.itemsSideBars;
-            
-            //string route = "/Home/TaskByCategory/" + routeId;
             UserTask userTask =await _taskRepository.GetUserTask((int)id);
+
             int routeId = (from n in _menu.itemsSideBars
                            where n.Name == userTask.TaskCategory
                            select n.Id).FirstOrDefault();
+
             ViewBag.CurrentRoute = routeId;
             if (userTask == null)
             {
                 ModelState.AddModelError("UserTask.Id", "Incorrect id UserTask");
                 return BadRequest(ModelState);
             }
+
             var taskObject = new TaskListViewModel() { Tasks = _taskRepository.Tasks, Categories = _taskRepository.Categories,UserTask=userTask };
             return View(taskObject);
         }
 
-       
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditUserTaskConfirm(UserTask userTask)
@@ -152,16 +147,14 @@ namespace ToDoList.Controllers
             ViewBag.SideBarItems = _menu.itemsSideBars;
             ViewBag.CurrentRoute = routeId;
             string route = "/Home/TaskByCategory/" + routeId;
-
             var result = await _taskRepository.EditUserTask(userTask);
             if (result == 0)
             {
                 return NotFound();
             }
+
             return Redirect(route);
         }
-
-
 
         public IActionResult Privacy()
         {
@@ -177,12 +170,5 @@ namespace ToDoList.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
-        //private bool UserTaskExists(int id)
-        //{
-        //    return _dbContext.Tasks.Any(e => e.Id == id);
-        //}
-
-
     }
 }

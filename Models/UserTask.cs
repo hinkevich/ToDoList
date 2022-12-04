@@ -6,7 +6,6 @@ namespace ToDoList.Models
 {
     public class UserTask
     {
-        
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Lenght can be more than 3")]
@@ -24,6 +23,5 @@ namespace ToDoList.Models
         [DataType(DataType.DateTime)]
         [Display(Name = "DeadLine Date")]
         public DateTime Dedline { get; set; } = DateTime.Now.AddDays(1);
-
     }
 }

@@ -32,7 +32,6 @@
         </nav>
     </header>
 
-
     <div class="container-px-2">
         <div class="row align-items-start-gx-1">
             <div class="col sm">
@@ -44,35 +43,15 @@
                 </nav>
             </div>
             <div class="col-10 sm">
-                
-                    @* <p>@ViewData["MyMessage"]- my fdhndfnhghmfgmfgm</p>*@
                     @RenderBody()
                 
             </div>
         </div>
     </div>
-   @* class="sidebar "*@
-  @*  class="pb-3"*@
-
-    <!-- Sidebar -->
-
-   @* <nav id="sidebarMenu" class="sidebar ">
-
-        @{await Html.RenderPartialAsync("SideBarMenu");}
-    </nav>*@
-    
-    <!-- Sidebar -->
-   
-
-   @* <div class="container">
-        <main role="main" class="pb-3">
-            <p>@ViewData["MyMessage"]- my fdhndfnhghmfgmfgm</p>
-            @RenderBody()
-        </main>
-    </div>*@
+  
     <div class="container">
         <footer class="footer" role="contentinfo">
-       @* "border-top footer text-muted"*@
+       
         <div >
             &copy; 2022 - ToDoList - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
@@ -88,10 +67,4 @@
 
 
 </body>
-@*<footer class="footer">
-    "border-top footer text-muted"
-    <div class="container">
-        &copy; 2022 - ToDoList - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-    </div>
-</footer>*@
 </html>

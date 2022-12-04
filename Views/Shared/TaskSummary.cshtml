@@ -22,13 +22,9 @@
 
             <td>
                 <form method="post" asp-action="Delete" asp-route-id="@item.Id">
-                   @* <input type="hidden" name="category" id="category" value="@item.TaskCategory" />*@
+                  
                     <input type="hidden" name="routeId" id="routeId" value="@ViewBag.CurrentRoute" />
                     <input type='submit' value='Delete' />
-                    @*<a input "Delete" asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
-                    @*<a asp-page="Edit" asp-route-id="@item.Id">Edit</a> |
-            <a asp-page="Details" asp-route-id="@item.Id">Details</a> |
-            <a asp-page="Delete" asp-route-id="@item.Id">Delete</a>*@
                 </form>
             </td>
             <td>
@@ -36,10 +32,7 @@
                     <input type="hidden" name="category" id="category" value="@item.TaskCategory" />
                     <input type="hidden" name="routeId" id="routeId" value="@ViewBag.CurrentRoute" />
                     <input type='submit' value='Done' />
-                    @*<a input "Delete" asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
-                    @*<a asp-page="Edit" asp-route-id="@item.Id">Edit</a> |
-            <a asp-page="Details" asp-route-id="@item.Id">Details</a> |
-            <a asp-page="Delete" asp-route-id="@item.Id">Delete</a>*@
+                   
                 </form>
             </td>
             <td>

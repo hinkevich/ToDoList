@@ -18,8 +18,5 @@ namespace ToDoList.Models.Repo
 
         public Task<UserTask> GetUserTask(int id);
         public Task<int> EditUserTask(UserTask userTask);
-
-
-       
     }
 }

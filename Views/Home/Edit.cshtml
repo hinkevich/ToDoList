@@ -24,11 +24,6 @@
                     <input class="form-check-input" asp-for="UserTask.IsDone" /> @Html.DisplayNameFor(model => model.UserTask.IsDone)
                 </label>
             </div>
-           @* <div class="form-group">
-                <label asp-for="UserTask.TaskCategory" class="control-label"></label>
-                <input asp-for="UserTask.TaskCategory" class="form-control" />
-                <span asp-validation-for="UserTask.TaskCategory" class="text-danger"></span>
-            </div>*@
             <div class="form-group">
                 <label asp-for="UserTask.Dedline" class="control-label"></label>
                 <input asp-for="UserTask.Dedline" class="form-control" />
@@ -54,10 +49,6 @@
         </form>
     </div>
 </div>
-
-@*<div>
-    <a asp-page="./Index">Back to List</a>
-</div>*@
 
 @section Scripts {
     @{

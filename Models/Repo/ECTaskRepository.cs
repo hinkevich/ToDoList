@@ -98,16 +98,6 @@ namespace ToDoList.Models.Repo
             throw new System.NotImplementedException();
         }
 
-        //public async Task<int> DeleteUserTask(int id)
-        //{
-        //    UserTask userTask = await _dbContext.Tasks.FindAsync(id);
-
-        //    if (userTask != null)
-        //    {
-        //        _dbContext.Tasks.Remove(userTask);
-        //        await _dbContext.SaveChangesAsync();
-        //    }
-        //    return id;
         private bool UserTaskExists(int id)
         {
             return _dbContext.Tasks.Any(e => e.Id == id);

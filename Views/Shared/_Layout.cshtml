@@ -37,9 +37,11 @@
             <div class="col sm">
                 <nav id="sidebarMenu">
 
-                    @{
+                   @* @{
                         await Html.RenderPartialAsync("SideBarMenu");
-                    }
+                    }*@
+                   @* @await Component.InvokeAsync("ItemsMenu")*@
+                   <vc:items-menu/>
                 </nav>
             </div>
             <div class="col-10 sm">
@@ -57,7 +59,7 @@
         </div>
     </footer>
     </div>
-
+   
    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

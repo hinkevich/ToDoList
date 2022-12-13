@@ -144,3 +144,4 @@ D:\csharp\lern\ToDoList\obj\Debug\netcoreapp3.1\ToDoList.pdb
 D:\csharp\lern\ToDoList\obj\Debug\netcoreapp3.1\ToDoList.genruntimeconfig.cache
 D:\csharp\lern\ToDoList\obj\Debug\netcoreapp3.1\Razor\Views\Shared\TaskSummaryComplited.cshtml.g.cs
 D:\csharp\lern\ToDoList\obj\Debug\netcoreapp3.1\Razor\Views\Home\Edit.cshtml.g.cs
+D:\csharp\lern\ToDoList\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\ItemsMenu\Default.cshtml.g.cs

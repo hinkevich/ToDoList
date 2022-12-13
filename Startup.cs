@@ -34,6 +34,7 @@ namespace ToDoList
             );
             services.AddScoped<ITaskRepository, ECTaskRepository>();
             services.AddScoped<IToDoMenu,ECToDoMenu>();
+            services.AddTransient<IToDoListInfo,ECToDoListInfo>();
             services.AddDistributedMemoryCache();
             services.AddSession();
 

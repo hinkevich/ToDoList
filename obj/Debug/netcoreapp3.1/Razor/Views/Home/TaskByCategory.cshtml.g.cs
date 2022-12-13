@@ -41,7 +41,7 @@ using ToDoList.Models.ViewModels;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7182285dddfd434a614a1fb048c0629ddb210a7c", @"/Views/Home/TaskByCategory.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"414f1a8083f9bef9530ecaadaa1f2d07eb246f84", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a19164d101633e447d08b451a4a5e55eccf93241", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Home_TaskByCategory : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<TaskListViewModel>
     #nullable disable

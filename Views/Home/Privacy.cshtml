@@ -1,7 +1,33 @@
-﻿@{
+﻿@using ToDoList.Models
+@using ToDoList.Models.Repo
+@inject IToDoListInfo Info
+@{
     Layout = "_Layout";
 }
+
+@*making test data*@
+@*@{
+    ToDoListInfoContext webContext = new ToDoListInfoContext()
+            {
+                version = new System.Version(1, 1, 2, 2),
+                Approved = true,
+                ApprovedByName = "Serge Hinkevich",
+                CopyrightDate = new System.DateTime(2022, 12, 13, 18, 50, 00)
+            };
+}*@
 
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
+<address>
+    <strong>Support: </strong><email>hinkevich</email><br />
+    <strong>Marketing: </strong><email>hinkevich</email>
+</address>
+<to-do-list-information info=Info.InfoToDoLis />
+
+
+@* Test element*@
+@*<to-do-list-information info="@webContext" />*@
+
+
+<ul><li><strong>Version:</strong> {Info.Version}</li></ul>

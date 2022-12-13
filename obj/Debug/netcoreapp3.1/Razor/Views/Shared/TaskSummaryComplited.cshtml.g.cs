@@ -34,7 +34,7 @@ using ToDoList.Controllers;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"47e182b8702fe454daaab73df650a26325a938d7", @"/Views/Shared/TaskSummaryComplited.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"414f1a8083f9bef9530ecaadaa1f2d07eb246f84", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a19164d101633e447d08b451a4a5e55eccf93241", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Shared_TaskSummaryComplited : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IQueryable<UserTask>>
     #nullable disable
